@@ -1,7 +1,5 @@
 FROM alpine:3.7
 
-ARG ISSO_VER=0.10.6
-
 ENV GID=1000 UID=1000
 
 RUN apk -U upgrade \
@@ -20,7 +18,7 @@ RUN apk -U upgrade \
     tini \
  && pip install --no-cache cffi \
  && pip install --no-cache misaka==1.0.2 \
- && pip install --no-cache "isso==${ISSO_VER}" \
+ && pip install --no-cache isso \
  && apk del build-dependencies \
  && rm -rf /tmp/* /var/cache/apk/*
 
